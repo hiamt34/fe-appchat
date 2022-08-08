@@ -1,57 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { io } from 'socket.io-client'
+import SocketProvider from './contexts/SocketProvider'
+import { privateRouter, publicRouter } from './router'
+import { RequireAuth } from './router/PrivateRouter'
+import { Public } from './router/PublicRouter'
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {
+          privateRouter.map((router, key) => {
+            const Page = router.component
+            const Layout = router.layout
+            return (
+              <Route
+                key={key}
+                path={router.path}
+                element={
+                  <SocketProvider>
+                    <RequireAuth>
+                      <Layout>
+                        <Page />
+                      </Layout>
+                    </RequireAuth>
+                  </SocketProvider>
+                }
+              />
+            )
+          })
+        }
+        {
+          publicRouter.map((router, key) => {
+            const Page = router.component
+            const Layout = router.layout
+            return (
+              <Route
+                key={key}
+                path={router.path}
+                element={
+                  <Public>
+                    <Layout>
+                      <Page />
+                    </Layout>
+                  </Public>
+                }
+              />
+            )
+          })
+        }
+      </Routes>
+    </Router>
   );
 }
 

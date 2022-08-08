@@ -1,0 +1,52 @@
+
+.profile-desc::-webkit-scrollbar {
+    width: 8px;
+    scroll-behavior: smooth;
+ 
+}
+
+.profile-desc::-webkit-scrollbar-track{
+ 
+}
+
+.profile-desc::-webkit-scrollbar-thumb {
+    background-color: #c5c5c5;
+    border-radius: 6px;
+}
+.profile-desc {
+    overflow: auto;
+}
+
+.dropdown-menu.dropdown-menu-end.show {
+    position: absolute;
+    inset: 0px 0px auto auto;
+    margin: 0px;
+    transform: translate(0px, 22px);
+}
+
+.chat-group-list::-webkit-scrollbar {
+    width: 8px;
+    scroll-behavior: smooth;
+ 
+}
+.chat-group-list::-webkit-scrollbar-thumb {
+    background-color: #c5c5c5;
+    border-radius: 6px;
+}
+.chat-group-list {
+    overflow: auto;
+}
+
+.chat-conversation::-webkit-scrollbar {
+    width: 8px;
+    scroll-behavior: smooth;
+ 
+}
+
+.chat-conversation::-webkit-scrollbar-thumb {
+    background-color: #c5c5c5;
+    border-radius: 6px;
+}
+.chat-conversation {
+    overflow: auto;
+}

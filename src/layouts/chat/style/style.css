@@ -1,0 +1,40 @@
+
+.dropdown-menu.show {
+    position: absolute;
+    inset: auto auto 0px 0px;
+    margin: 0px;
+    transform: translate(0px, -58.25px);
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9;
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.msg-li:hover {
+    background-color: rgba(var(--bs-primary-rgb),.1);
+}
+
+.right > .conversation-list.non-img{
+    margin-bottom: 0;
+    margin-right: 44px;
+}
+
+.left > .conversation-list.non-img{
+    margin-bottom: 0;
+    margin-left: 44px;
+}
+
+#contact-sort-A:hover {
+    background-color: rgba(var(--bs-primary-rgb),.1);
+}

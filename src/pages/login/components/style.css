@@ -1,0 +1,10 @@
+#btn-gg {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+#btn-gg iframe {
+    width: 100% !important;
+}
+
